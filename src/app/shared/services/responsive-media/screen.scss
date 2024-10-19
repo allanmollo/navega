@@ -1,0 +1,78 @@
+@use 'sass:map';
+
+$_desktop-breakpoints: (
+    'sm': 1023px,
+    'md': 1024px,
+    'lg': 1280px,
+    'xl': 1366px,
+    '2xl': 1440px,
+    '3xl': 1920px
+);
+
+@mixin screen-desktop-all() {
+    @include screen-at-least('md') {
+        @content;
+    }
+}
+
+@mixin screen-mobile-all() {
+    @include until('sm') {
+        @content;
+    }
+}
+
+@mixin screen-at-least($breakpoint) {
+    @include is-breakpoint-valid($breakpoint);
+
+    $size: get-breakpoint-value($breakpoint);
+    @media screen and (min-width: $size) {
+        @content;
+    }
+}
+
+@mixin screen-between($minBreakpoint, $maxBreakpoint) {
+    $min: get-breakpoint-value($minBreakpoint);
+    $max: get-breakpoint-value($maxBreakpoint);
+    @if not($min) {
+        @include no-breakpoint-found-error($minBreakpoint);
+    }
+    @if not($max) {
+        @include no-breakpoint-found-error($maxBreakpoint);
+    }
+
+    @media screen and (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}
+
+@mixin until($maxBreakpoint) {
+    @include is-breakpoint-valid($maxBreakpoint);
+
+    $maxWidth: get-breakpoint-value($maxBreakpoint);
+    @media screen and (max-width: $maxWidth) {
+        @content;
+    }
+}
+
+@mixin set-breakpoint-value($breakpoint-name, $value) {
+    $_desktop-breakpoints: map.merge(
+        $_desktop-breakpoints,
+        (
+            $breakpoint-name: $value
+        )
+    ) !global;
+}
+
+@mixin is-breakpoint-valid($breakpoint) {
+    @if not map-has-key($_desktop-breakpoints, $breakpoint) {
+        @include no-breakpoint-found-error($breakpoint);
+    }
+}
+
+@mixin no-breakpoint-found-error($breakpointName) {
+    @error "No breakpoint found for #{$breakpoint} in #{$_desktop-breakpoints} map, Use mixin set-breakpoint-value(name, value) to add new value";
+}
+
+@function get-breakpoint-value($breakpoint) {
+    @return map.get($_desktop-breakpoints, $breakpoint);
+}
