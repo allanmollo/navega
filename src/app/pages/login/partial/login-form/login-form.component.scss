@@ -1,0 +1,61 @@
+@use '../../../../styles/typography/typography.scss' as font;
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/spacing.scss';
+
+
+:host ::ng-deep .p-inputtext { 
+    @include font.placeholder-input;
+    color: $color-gray-90;
+    border: none;
+    border-bottom: 1px solid $color-gray-90;
+    border-radius: 0;
+    width: 100%;
+} 
+  
+:host ::ng-deep .p-inputtext:focus:enabled,  
+:host ::ng-deep .p-inputtext:hover 
+{ 
+    box-shadow: none; 
+ 
+}
+
+:host ::ng-deep .p-button {
+    @include font.label-button;
+    background-color: $color-gray-60;
+    margin-top: $spacing-lg + $spacing-xl;
+    height: 40px;
+    width: 100%;
+} 
+
+form {
+    margin-top: $spacing-md;
+
+    .form-control {
+        margin-bottom: $spacing-xs;
+
+        label {
+            @include font.paragraph-regular-14;
+            display: flex;
+            margin-bottom: $spacing-2xs;
+        }
+    }
+
+    .form-bottom-data {
+        margin-top: $spacing-xs;
+
+        p {
+            @include font.paragraph-regular-14;
+
+            a {
+                color: $color-gray-60;
+                text-decoration: none;
+            }
+        }
+
+        span {
+            display: inline-block;
+            margin-top: $spacing-xs;
+            @include font.paragraph-regular-12; 
+        }
+    }
+}

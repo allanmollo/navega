@@ -1,0 +1,57 @@
+@use '../../shared/services/responsive-media/screen.scss';
+@use '../../../app/styles/typography/typography.scss' as font;
+@import './../../styles/colors.scss';
+@import './../../styles/spacing.scss';
+
+.login {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .login-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        width: 35%;
+
+        .login-data {
+            width: 312px;
+
+            .logo {
+                margin-bottom: $spacing-xs;
+            }
+
+            p {
+                @include font.paragraph-regular-14;
+            }
+
+            h5 {
+                @include font.title-semiBold;
+                color: $color-gray-90;
+                margin-bottom: $spacing-2xs;
+            }
+        }
+    }
+
+    .bg-login {
+        background-image: url('./../../../assets/images/login/bg-login.png');
+        background-size: cover;
+        height: calc(100vh);
+        width: 65%;
+    }
+}
+
+@include screen.screen-mobile-all() {
+    .login {
+        .login-container {
+            width: 100%;
+            padding: $spacing-sm;
+
+            .login-data {
+                width: 100%;
+            }
+        }
+    }
+}
