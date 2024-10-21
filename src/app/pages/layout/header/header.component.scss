@@ -1,0 +1,26 @@
+@use '../../../shared/services/responsive-media/screen.scss';
+@use '../../../styles/typography/typography.scss' as font;
+@import './../../../styles/colors.scss';
+@import './../../../styles/spacing.scss';
+
+.header {
+    background-color: $color-secondary-60;
+    height: 80px;
+
+    .grid {
+        height: 100%;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+
+        .controls {
+            display: flex;
+            flex-direction: row;
+            gap: $spacing-2xs;
+        }
+    }
+}
