@@ -12,6 +12,20 @@ $-font-family: "Poppins", sans-serif;
     line-height: $line-height-20;
 }
 
+@mixin title-semiBold-h4 {
+    font-family: $-font-family;
+    font-weight: $font-weight-600;
+    font-size: $font-size-lg;
+    line-height: $line-height-25;
+}
+
+@mixin title-regular {
+    font-family: $-font-family;
+    font-weight: $font-weight-400;
+    font-size: $font-size-sm;
+    line-height: $line-height-17;
+}
+
 @mixin paragraph-regular-12 {
     font-family: $-font-family;
     font-weight: $font-weight-400;
@@ -36,6 +50,13 @@ $-font-family: "Poppins", sans-serif;
 @mixin label-button {
     font-family: $-font-family;
     font-weight: $font-weight-700;
+    font-size: $font-size-sm;
+    line-height: $line-height-17;
+}
+
+@mixin low-emphasis-sm {
+    font-family: $-font-family;
+    font-weight: $font-weight-400;
     font-size: $font-size-sm;
     line-height: $line-height-17;
 }

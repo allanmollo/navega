@@ -1,7 +1,24 @@
+@use './app/shared/services/responsive-media/screen.scss';
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
 
 * {
     padding: 0;
     margin: 0;
+}
+
+
+
+@include screen.screen-desktop-all() {
+    .grid {
+        max-width: 1136px;
+        margin: 0 auto !important;
+    }
+}
+
+@include screen.screen-mobile-all() {
+    .grid {
+        margin: 0 auto !important;
+    }
 }
