@@ -1,0 +1,31 @@
+@use '../../../shared/services/responsive-media/screen.scss';
+@use '../../../../app/styles/typography/typography.scss' as font;
+@import './../../../styles/colors.scss';
+@import './../../../styles/spacing.scss';
+
+.menu {
+    width: 100%;
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            @include font.title-regular;
+            padding: $spacing-xs 0;
+            border-bottom: solid 1px $color-gray-50;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            >div {
+                display: flex;
+                align-items: center;
+            }
+
+            img {
+                margin-right: $spacing-2xs;
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<div class="menu">
+    <ul>
+        @for (item of menu; track item) {
+        <li>
+            <div>
+                <img [src]="'assets/images/svg/'+ item.icon +'.svg'" [alt]="item.label"> {{ item.label
+                }}
+            </div>
+            <i class="pi pi-chevron-right"></i>
+        </li>
+        }
+    </ul>
+</div>
