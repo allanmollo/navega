@@ -18,7 +18,9 @@ export class LoginFormComponent extends BaseMobileCheckComponent implements OnIn
 
   loginForm: UntypedFormGroup = {} as UntypedFormGroup;
   email: string | undefined;
-  password: string | undefined;
+  pass: string | undefined;
+  password: string = 'password';
+  show = false;
 
   authService = inject(AuthService);
   router = inject(Router);
@@ -27,7 +29,6 @@ export class LoginFormComponent extends BaseMobileCheckComponent implements OnIn
     private fb: UntypedFormBuilder,
   ) {
     super();
-
   }
 
   ngOnInit(): void {
@@ -44,6 +45,16 @@ export class LoginFormComponent extends BaseMobileCheckComponent implements OnIn
       email: ['', Validators.required],
       password: ['', Validators.required]
     })
+  }
+
+  toggleShow() {
+    if (this.password === 'password') {
+      this.password = 'text';
+      this.show = true;
+    } else {
+      this.password = 'password';
+      this.show = false;
+    }
   }
 
   onSubmit() {

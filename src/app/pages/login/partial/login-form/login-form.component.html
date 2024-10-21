@@ -1,12 +1,14 @@
 <form [formGroup]="loginForm">
     <div class="form">
         <div class="form-control">
+            <img src="assets/images/svg/check-circle.svg" alt="check">
             <label for="email">Email ou CPF</label>
-            <input pInputText id="email" formControlName="email" [(ngModel)]="email" />
+            <input type="text" pInputText id="email" formControlName="email" [(ngModel)]="email" />
         </div>
         <div class="form-control">
+            <img src="assets/images/svg/eye.svg" alt="eye" (click)="toggleShow()">
             <label for="password">Senha</label>
-            <input pInputText id="password" formControlName="password" [(ngModel)]="password" />
+            <input [type]="password" pInputText id="password" formControlName="password" [(ngModel)]="pass" />
         </div>
     </div>
     <p-button label="ACESSAR" size="large" (click)="onSubmit()"  />

@@ -32,6 +32,13 @@ form {
 
     .form-control {
         margin-bottom: $spacing-xs;
+        position: relative;
+
+        img {
+            position: absolute;
+            right: 0;
+            top: 10px;
+        }
 
         label {
             @include font.paragraph-regular-14;
