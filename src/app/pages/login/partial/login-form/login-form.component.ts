@@ -1,9 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Validators, UntypedFormBuilder, UntypedFormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { BaseMobileCheckComponent } from 'src/app/shared/components/mobile-check/mobile-check.component';
-import { InputTextModule } from 'primeng/inputtext';
-import { FloatLabelModule } from 'primeng/floatlabel';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { InputTextModule } from 'primeng/inputtext';
+import { AuthService } from 'src/app/auth/auth.service';
+import { BaseMobileCheckComponent } from 'src/app/shared/components/mobile-check/mobile-check.component';
 
 @Component({
   selector: 'app-login-form',
@@ -15,12 +17,17 @@ import { ButtonModule } from 'primeng/button';
 export class LoginFormComponent extends BaseMobileCheckComponent implements OnInit, OnDestroy {
 
   loginForm: UntypedFormGroup = {} as UntypedFormGroup;
-
   email: string | undefined;
   password: string | undefined;
 
-  constructor(private fb: UntypedFormBuilder) {
+  authService = inject(AuthService);
+  router = inject(Router);
+
+  constructor(
+    private fb: UntypedFormBuilder,
+  ) {
     super();
+
   }
 
   ngOnInit(): void {
@@ -37,5 +44,17 @@ export class LoginFormComponent extends BaseMobileCheckComponent implements OnIn
       email: ['', Validators.required],
       password: ['', Validators.required]
     })
+  }
+
+  onSubmit() {
+    if (this.loginForm.valid) {
+      this.router.navigate(['/home']);
+      // this.authService.login(this.loginForm.value)
+      //   .subscribe((data: any) => {
+      //     if (this.authService.isLoggedIn()) {
+      //       this.router.navigate(['/']);
+      //     }
+      //   });
+    }
   }
 }

@@ -9,7 +9,7 @@
             <input pInputText id="password" formControlName="password" [(ngModel)]="password" />
         </div>
     </div>
-    <p-button label="ACESSAR" size="large"  />
+    <p-button label="ACESSAR" size="large" (click)="onSubmit()"  />
     
     <div class="form-bottom-data">
         <p>Esqueceu a senha? <a href="">Acesse aqui</a></p>
