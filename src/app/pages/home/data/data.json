@@ -1,0 +1,37 @@
+{
+    "description": [
+    {
+      "name": "Contribuição Mensal",
+      "data": [
+        {
+          "name": "Valor da contribuição",
+          "value": "R$ 500,00"
+        },
+        {
+          "name": "Porcentagem do salario",
+          "value": "50%"
+        }
+      ],
+      "total": "R$ 500,00",
+      "color": "#594CBE"
+    },
+    {
+      "name": "Contribuição Voluntária",
+      "data": [
+        {
+          "name": "Valor da contribuição",
+        "value": "R$ 700,00"
+        }
+      ],
+      "total": "R$ 700,00",
+      "color": "#E22E6F"
+    }
+  ],
+  "total": 1200,
+  "datasets": [
+    {
+      "data": [500, 700],
+      "backgroundColor": ["#594CBE", "#E22E6F"]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+[
+    {
+      "icon": "extrato",
+      "label": "Ver extrato"
+    },
+    {
+      "icon": "contribuicao-mensal",
+      "label": "Contribuição Mensal"
+    },
+    {
+      "icon": "contribuicao-extra",
+      "label": "Contribuição Extra"
+    },
+    {
+      "icon": "documentos",
+      "label": "Documentos"
+    },
+    {
+      "icon": "regime-tributacao",
+      "label": "Regime de Tributação"
+    },
+    {
+      "icon": "solicitar-beneficio",
+      "label": "Solicitar Benefício"
+    },
+    {
+      "icon": "extrato-regressivo",
+      "label": "Extrato Regressivo"
+    },
+    {
+      "icon": "informacoes",
+      "label": "Informações"
+    }
+  ]
