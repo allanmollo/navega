@@ -1,1 +1,86 @@
-<p>home works!</p>
+<div class="home">
+    <div class="grid">
+        <div class="col-12 breadcrumb">
+            <i class="pi pi-arrow-left"></i>
+            <span>
+                @if(!isMobile){
+                    MEU PLANO
+                }
+                @else{
+                    CONTRIBUIÇÕES
+                }
+            </span>
+        </div>
+
+        @if(!isMobile){ 
+            <div class="col-4">
+                <div class="my-plan">
+                    <div class="header">
+                        <img src="assets/images/svg/meu-plano.svg" alt="Meu plano">
+                        <h5>Meu plano</h5>
+                        <h6>O que você quer fazer</h6>
+                    </div>
+                    <app-side-menu></app-side-menu>
+                </div>
+            </div>
+        }
+        
+        <div class="col-12 xl:col-8">
+            <div class="chart-wrapper">
+                <p class="label">Total em contribuições</p>
+                <p class="value-title">{{ data.total | currency: 'R$ ' }}</p>
+
+                <div class="chart">
+                    <p-chart [height]="'145px'" type="doughnut" [data]="data" [options]="options" />
+                </div>
+
+                <ul>
+                    @for (item of data.description; track item) {
+                    <li>
+                        <div>
+                            <i class="pi pi-circle-fill" [style.color]="item.color"></i>
+                            <p class="label">{{ item.name }}</p>
+                        </div>
+                        <p class="value">{{ item.total }}</p>
+                    </li>
+                    }
+                </ul>
+            </div>
+
+            <div class="home-data">
+                <p-accordion [multiple]="true" [activeIndex]="[0]" expandIcon="pi pi-chevron-down"
+                    collapseIcon="pi pi-chevron-right">
+
+                    @for (item of data.description; track item) {
+                    <p-accordionTab>
+                        <ng-template pTemplate="header">
+                            <span class="flex align-items-center gap-2 w-full">
+                                <img src="assets/images/svg/contribuicao-list.svg" alt="Ícone contribuição">
+                                <span>
+                                    {{ item.name }}
+                                </span>
+                            </span>
+                        </ng-template>
+
+                        <ul>
+                            @for (item of item.data; track item) {
+                            <li>
+                                <p>{{ item.name }}</p>
+                                <p><strong>{{ item.value }}</strong></p>
+                            </li>
+                            }
+                        </ul>
+
+                        <p-button label="Alterar contribuição" [link]="true" />
+                    </p-accordionTab>
+                    }
+                </p-accordion>
+
+                <div class="controls">
+                    <button pButton pRipple label="Incluir contribuição" class="p-button-success">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
